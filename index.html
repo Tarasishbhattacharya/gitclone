@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/nav.css">
+</head>
+<body>
+<div id="container"></div>
+<button id="repo">Go to repos</button>
+<div id="show_repos">
+    <div id="left_div"></div>
+    <div id="right_div"></div>
+</div>
+</body>
+</html>
+<script type="module">
+    let query;
+    import nav from './component/nav.js';
+    import getdata from './script/getuser.js'
+    import {getrepo,appendrepo} from './repo/repo.js'
+    let cont=document.querySelector("#container");
+    cont.innerHTML=nav();
+    let input=document.querySelector("#search-input");
+    let left_div=document.querySelector("#left_div");
+    let right_div=document.querySelector("#right_div");
+
+
+    input.addEventListener("keypress",(event)=>{
+        if(event.key==="Enter"){
+            query=input.value;
+            let response=getdata(`https://api.github.com/users/${query}`)
+            response.then((res)=>{
+                let {avatar_url}=res;
+                document.querySelector("#profile-img").src=avatar_url;
+            })
+        }
+    })
+
+    let repo=document.querySelector("#repo");
+    repo.addEventListener("click",()=>{
+        query=input.value;
+        let response=getrepo(`https://api.github.com/users/${query}/repos`)
+            response.then((res)=>{
+                appendrepo(res,left_div,right_div);
+            })
+        document.querySelector("#repo").style.display="none";
+    })
+
+    // async function searchuser(event){
+    //     if(event.key==="Enter"){
+    //         query=input.value;
+    //         let response=await getdata(query);
+    //         let {avatar_url}=response;
+    //         document.querySelector("#profile-img").src=avatar_url;
+
+    //     }
+       
+    // }
+    // async function getuserrepo(){
+    //     let res=await fetch(response .respo_url)
+    // }
+
+</script>

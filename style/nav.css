@@ -1,0 +1,112 @@
+body{
+    margin: 0px;
+}
+#navbar{
+
+
+    display: flex;
+    background-color: black;
+    color: white;
+    margin-bottom: 50px;
+}
+
+#logo img{
+
+    width: 30%;
+    padding: 9px;
+}
+
+#profile-img{
+
+width: 50%;
+border-radius: 50%;
+height: 40px;
+
+}
+
+#list li{
+
+    display: inline;
+    margin-right: 2%;
+    text-decoration: none;
+}
+#search{
+
+    width: 10%;
+    padding: 12px;
+}
+#repo{
+   margin-top: 150px;
+   margin-left: 600px;
+   padding: 5px 8px;
+   background-color: green;
+   border: transparent;
+   outline: none;
+   border-radius: 20px;
+   cursor: pointer;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   
+}
+
+#logo{
+
+    width: 5%;
+    text-align: right;
+}
+#options{
+
+    width: 75%;
+}
+#profile{
+
+    width: 5%;
+}
+#show_repos{
+    display: flex;
+    margin-bottom: 30px;
+}
+#left_div{
+    width: 30%;
+    margin-right: 30px;
+}
+#left_div>img{
+    width: 360px;
+    border-radius: 50%;
+}
+#left_div>p{
+    text-align: center;
+    font-size: 20px;
+}
+#left_div>p::first-letter{
+    text-transform: uppercase;
+}
+#right_div{
+    display: grid;
+    grid-template-columns:repeat(2,1fr) ;
+    width: 70%;
+    grid-gap: 10px;
+}
+#right_div>div{
+    padding: 5px;
+    border-radius: 25px;
+    border:1px solid teal
+}
+#right_div>div>span{
+    color:#2969da;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 22px;
+}
+#right_div>div>span:hover{
+    text-decoration: underline;
+    
+    text-decoration-color:#2969da;
+}
+
+#right_div>div>button{
+    margin-left: 20px;
+    text-align: center;
+    border-radius: 20px;
+    border: transparent;
+    outline:none
+}
